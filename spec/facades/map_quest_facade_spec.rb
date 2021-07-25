@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe MapQuestFacade do 
 describe 'class methods' do
   describe '::coordinates' do
-    it 'happy path: returns latitude and longitude' do
+    it 'returns latitude and longitude' do
       VCR.use_cassette("map_quest_coordinates") do
         coordinates = MapQuestFacade.coordinates('boston, ma') 
         
