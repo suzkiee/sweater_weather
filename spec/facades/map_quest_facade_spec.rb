@@ -10,7 +10,7 @@ describe 'class methods' do
         expect(coordinates).to be_a(Hash)
         expect(coordinates).to have_key(:lat)
         expect(coordinates).to have_key(:lng)
-        expect(coordinate).to_not have_key(:locations)
+        expect(coordinates).to_not have_key(:locations)
       end
     end 
   end
