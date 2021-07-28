@@ -5,7 +5,6 @@ class ForecastDetails
               :hourly_weather
 
   def initialize(details)
-    require 'pry'; binding.pry
     @id = details[:id] 
     @current_weather = details[:current]
     @daily_weather = details[:daily].first
