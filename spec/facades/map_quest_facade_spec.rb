@@ -4,7 +4,7 @@ RSpec.describe MapQuestFacade do
 describe 'class methods' do
   describe '::coordinates' do
     it 'returns latitude and longitude' do
-      VCR.use_cassette("map_quest_coordinates") do
+      VCR.use_cassette("mapquest_facade_coordinates") do
         coordinates = MapQuestFacade.coordinates('boston, ma') 
         
         expect(coordinates).to be_a(Hash)
