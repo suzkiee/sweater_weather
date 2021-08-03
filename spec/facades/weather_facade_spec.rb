@@ -7,7 +7,7 @@ RSpec.describe WeatherFacade do
         forecast = WeatherFacade.forecast('boston, ma')
         
         expect(forecast.current_weather).to be_a(Hash)
-        expect(forecast.daily_weather).to be_a(Hash)
+        expect(forecast.daily_weather).to be_a(Array)
       end
     end 
   end
