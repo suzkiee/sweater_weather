@@ -8,7 +8,7 @@ RSpec.describe "Forecast API" do
         get '/api/v1/forecast?location=boston,ma'
 
         body = JSON.parse(response.body, symbolize_names: true)
-
+      
         expect(response).to be_successful 
         expect(body[:data]).to have_key(:id)
         expect(body[:data]).to have_key(:type)
@@ -18,5 +18,7 @@ RSpec.describe "Forecast API" do
         expect(body[:data][:attributes]).to have_key(:hourly_weather)
       end
     end
+
+    # add sad path
   end
 end
