@@ -12,7 +12,6 @@ class ForecastDetails
   end
 
   private
-
     def get_current_weather(data)
       {
         datetime: Time.at(data[:dt]).to_s(:dt),
