@@ -11,18 +11,18 @@ RSpec.describe BackgroundDetails do
   
         expect(bd).to be_a(BackgroundDetails)
         expect(bd.id).to eq(nil)
-        expect(bd.background).to be_a(Hash)
-        expect(bd.background).to have_key(:location)
-        expect(bd.background).to have_key(:image_url)
-        expect(bd.background).to have_key(:credit)
+        expect(bd.info).to be_a(Hash)
+        expect(bd.info).to have_key(:location)
+        expect(bd.info).to have_key(:image_url)
+        expect(bd.info).to have_key(:credit)
 
-        expect(bd.background).to_not have_key(:total)
-        expect(bd.background).to_not have_key(:total_pages)
-        expect(bd.background).to_not have_key(:categories)
+        expect(bd.info).to_not have_key(:total)
+        expect(bd.info).to_not have_key(:total_pages)
+        expect(bd.info).to_not have_key(:categories)
 
-        expect(bd.background[:credit]).to have_key(:source)
-        expect(bd.background[:credit]).to have_key(:author)
-        expect(bd.background[:credit]).to have_key(:logo)
+        expect(bd.info[:credit]).to have_key(:source)
+        expect(bd.info[:credit]).to have_key(:author)
+        expect(bd.info[:credit]).to have_key(:logo)
       end
     end
   end

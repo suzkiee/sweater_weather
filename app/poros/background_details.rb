@@ -1,14 +1,14 @@
 class BackgroundDetails 
   attr_reader :id,
-              :background
+              :info
 
   def initialize(details, location)
     @id = nil
-    @background = get_background(details, location)
+    @info = get_info(details, location)
   end
 
   private
-    def get_background(details, location)
+    def get_info(details, location)
       {
         location: location,
         image_url: details[:results][0][:urls][:regular],
