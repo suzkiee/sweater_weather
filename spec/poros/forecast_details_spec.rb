@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe ForecastDetails do
   describe 'class methods' do
-    describe '::forecast' do
+    describe '::initialize' do
       it 'creates forecast details object' do
         response = File.read('spec/fixtures/open_weather/forecast_details.json')
         forecast_details = JSON.parse(response, symbolize_names: true) 
