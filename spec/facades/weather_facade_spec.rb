@@ -6,6 +6,7 @@ RSpec.describe WeatherFacade do
       VCR.use_cassette("weather_facade_forecast") do 
         forecast = WeatherFacade.forecast('boston, ma')
         
+        expect(forecast).to be_a(ForecastDetails)
         expect(forecast.current_weather).to be_a(Hash)
         expect(forecast.daily_weather).to be_a(Array)
       end
