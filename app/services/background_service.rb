@@ -5,10 +5,12 @@ class BackgroundService
   end
  
   def request_api(path, location)
-    resp = conn("https://api.unsplash.com/photos/").get(path) do |faraday|
+    resp = conn("https://api.unsplash.com/").get(path) do |faraday|
+      faraday.headers['Accept-Version'] = 'v1'
       faraday.params['client_id'] = ENV['unsplash_key']
       faraday.params['query'] = location
-    end 
+      faraday.params['per_page'] = 1 
+    end
     
     parse_json(resp)
   end 
