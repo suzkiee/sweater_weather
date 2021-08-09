@@ -24,12 +24,21 @@ RSpec.describe "Breweries API" do
       expect(body[:data][:attributes][:forecast]).to have_key(:summary)
       expect(body[:data][:attributes][:forecast]).to have_key(:temperature)
       expect(body[:data][:attributes][:forecast][:summary]).to eq("clear sky")
-      expect(body[:data][:attributes][:forecast][:temperature]).to eq("88 F")
+      expect(body[:data][:attributes][:forecast][:temperature]).to eq("89 F")
 
       expect(body[:data][:attributes][:breweries].count).to eq(5)
-      expect(body[:data][:attributes][:breweries][0][:id]).to eq(8245)
-      expect(body[:data][:attributes][:breweries][0][:name]).to eq("Aero Craft Brewing")
+      expect(body[:data][:attributes][:breweries][0][:id]).to eq(8962)
+      expect(body[:data][:attributes][:breweries][0][:name]).to eq("Black Beak Brewing")
       expect(body[:data][:attributes][:breweries][0][:brewery_type]).to eq("planning")
     end
+  end
+
+  it 'sad path: quantity must be greater than 0' do
+    get '/api/v1/breweries?location=denver,co&quantity=0'
+
+    body = JSON.parse(response.body, symbolize_names: true)
+ 
+    expect(response.status).to eq(400)
+    expect(body[:error]).to eq("Quantity cannot be less than 0") 
   end
 end
