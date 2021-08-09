@@ -1,7 +1,7 @@
 class BreweriesService
 
-  def self.find_breweries(location, quantity)
-    new.request_api("/breweries?by_city=#{location}&per_page=#{quantity}")
+  def self.find_breweries(coordinates, quantity)
+    new.request_api("/breweries?by_dist=#{coordinates[:lat]},#{coordinates[:lng]}&per_page=#{quantity}")
   end
  
   def request_api(path)
