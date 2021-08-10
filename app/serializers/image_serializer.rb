@@ -1,4 +1,5 @@
 class ImageSerializer
   include JSONAPI::Serializer
-  attributes :id, :info
+  set_type :image 
+  attributes :info
 end
