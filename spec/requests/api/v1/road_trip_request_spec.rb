@@ -25,7 +25,25 @@ RSpec.describe "Roadtrip API" do
       expect(body[:data]).to have_key(:id)
       expect(body[:data]).to have_key(:attributes)
 
-      expect(body[:data][:attributes]).to have_key(:id) 
+      expect(body[:data][:attributes]).to have_key(:end_city)
+      expect(body[:data][:attributes]).to have_key(:start_city)
+      expect(body[:data][:attributes]).to have_key(:travel_time)
+      expect(body[:data][:attributes]).to have_key(:weather_at_eta)
+      expect(body[:data][:attributes][:weather_at_eta]).to have_key(:conditions)
+      expect(body[:data][:attributes][:weather_at_eta]).to have_key(:temperature)
+    end
+
+    it 'sad path: returns error message for invalid API key' do
+      post '/api/v1/road_trip', params: {
+        "origin": "Alexandria,VA",
+        "destination": "Manassas,VA",
+        "api_key": "thisisthewrongapikey"
+      }, as: :json
+
+      body = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response.status).to eq(404)
+      expect(body[:error]).to eq("Invalid API key")
     end
   end
 end
