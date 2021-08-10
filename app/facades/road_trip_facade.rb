@@ -25,7 +25,7 @@ class RoadTripFacade
   end
 
   def self.check_time(route)
-    if route[:route][:routeError][:errorCode] == (-400) 
+    if route[:route][:routeError][:errorCode] == (-400)
       Time.now + route[:route][:realTime]
     else 
       nil
