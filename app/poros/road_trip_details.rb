@@ -5,7 +5,6 @@ class RoadTripDetails
               :travel_time,
               :weather_at_eta 
 
-
   def initialize(details)
     @id = nil
     @start_city = details[:start_city]
