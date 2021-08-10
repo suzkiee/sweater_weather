@@ -14,7 +14,7 @@ RSpec.describe "Sessions API" do
       @user = User.find(body[:data][:id].to_i)
     end
     
-    it 'happy path: logs a user in' do
+    it 'happy path: creates session and logs a user in' do
       post '/api/v1/sessions', params: { 
         "email": "ligma1@example.com",
         "password": "password"
