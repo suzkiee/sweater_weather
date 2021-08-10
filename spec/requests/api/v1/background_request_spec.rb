@@ -7,11 +7,10 @@ RSpec.describe "Background API" do
       get '/api/v1/backgrounds?location=boston,ma'
 
       body = JSON.parse(response.body, symbolize_names: true)
-
+      
       expect(response).to be_successful
       expect(body).to have_key(:data)
       expect(body[:data]).to have_key(:attributes)
-      expect(body[:data][:attributes]).to have_key(:id)
       expect(body[:data][:attributes]).to have_key(:info)
       expect(body[:data][:attributes]).to have_key(:info)
     end
