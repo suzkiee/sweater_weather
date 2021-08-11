@@ -13,7 +13,7 @@ I used these [user stories](https://backend.turing.edu/module3/projects/sweater_
 - Research, select, and consume an API based on your needs as a developer
 
 ### Database Schema
-<!-- upload image here -->
+![Screen Shot 2021-08-10 at 8 59 23 PM](https://user-images.githubusercontent.com/70981102/128953870-0b631c97-480e-4cbb-a913-3552d784b4a1.png)
 
 ### Getting Started
 
