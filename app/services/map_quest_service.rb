@@ -6,7 +6,7 @@ class MapQuestService
  
   def request_api(path)
     resp = conn("http://www.mapquestapi.com").get(path) do |faraday|
-      faraday.params['key'] = ENV['mapquest_key']
+      faraday.params['key'] = ENV['MAPQUEST_KEY']
     end 
     
     parse_json(resp)
