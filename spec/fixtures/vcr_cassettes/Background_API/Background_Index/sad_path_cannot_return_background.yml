@@ -51,9 +51,9 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '49'
       X-Request-Id:
-      - 9f42e3fb-51d6-409a-b94e-00a311604e9d
+      - 70536931-062c-4bb3-a95a-090ac1a608a0
       X-Runtime:
-      - '0.030840'
+      - '0.023881'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Via:
@@ -61,21 +61,21 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 10 Aug 2021 01:14:57 GMT
+      - Wed, 11 Aug 2021 14:29:53 GMT
       Age:
-      - '1'
+      - '28'
       X-Served-By:
-      - cache-dca17745-DCA, cache-bos4634-BOS
+      - cache-dca17756-DCA, cache-ewr18175-EWR
       X-Cache:
-      - MISS, HIT
+      - HIT, MISS
       X-Cache-Hits:
-      - 0, 1
+      - 1, 0
       X-Timer:
-      - S1628558097.231191,VS0,VE1
+      - S1628692193.280862,VS0,VE8
       Vary:
       - Accept-Encoding, Origin,Authorization,client-geo-region
     body:
       encoding: ASCII-8BIT
       string: '{"total":0,"total_pages":0,"results":[]}'
-  recorded_at: Tue, 10 Aug 2021 01:14:57 GMT
+  recorded_at: Wed, 11 Aug 2021 14:29:53 GMT
 recorded_with: VCR 6.0.0

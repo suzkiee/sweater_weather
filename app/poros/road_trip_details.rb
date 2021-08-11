@@ -20,7 +20,9 @@ class RoadTripDetails
         conditions: nil 
       }
     elsif details[:time] < (Time.now + 288000)
-      eta_forecast = details[:weather].hourly_weather.find {|hour| hour[:time].to_i == details[:time].hour}
+      eta_forecast = details[:weather].hourly_weather.find do |hour|
+        hour[:time].to_i == details[:time].hour
+      end
       {
         temperature: "#{eta_forecast[:temperature].round(1)} F",
         conditions: eta_forecast[:conditions]

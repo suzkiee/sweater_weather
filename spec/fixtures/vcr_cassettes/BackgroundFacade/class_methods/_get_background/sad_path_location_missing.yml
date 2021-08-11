@@ -61,21 +61,21 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 10 Aug 2021 01:14:56 GMT
+      - Wed, 11 Aug 2021 14:29:25 GMT
       Age:
       - '0'
       X-Served-By:
-      - cache-dca17745-DCA, cache-bos4678-BOS
+      - cache-dca17745-DCA, cache-bos4630-BOS
       X-Cache:
-      - MISS, MISS
+      - MISS, HIT
       X-Cache-Hits:
-      - 0, 0
+      - 0, 1
       X-Timer:
-      - S1628558096.360474,VS0,VE13
+      - S1628692165.266589,VS0,VE86
       Vary:
       - Accept-Encoding, Origin,Authorization,client-geo-region
     body:
       encoding: ASCII-8BIT
       string: '{"total":0,"total_pages":0,"results":[]}'
-  recorded_at: Tue, 10 Aug 2021 01:14:56 GMT
+  recorded_at: Wed, 11 Aug 2021 14:29:25 GMT
 recorded_with: VCR 6.0.0
