@@ -44,6 +44,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'webmock'
   gem 'vcr'
+  gem 'travis'
 end
 
 group :development do
