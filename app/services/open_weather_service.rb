@@ -4,7 +4,7 @@ class OpenWeatherService < BaseService
   end
 
   def request_api(path)
-    resp = conn("https://api.openweathermap.org/").get(path) do |faraday|
+    resp = conn('https://api.openweathermap.org/').get(path) do |faraday|
       faraday.params['appid'] = ENV['OPENWEATHER_KEY']
       faraday.params['units'] = 'imperial'
     end
