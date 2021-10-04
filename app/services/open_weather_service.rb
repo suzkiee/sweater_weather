@@ -1,4 +1,4 @@
-class OpenWeatherService
+class OpenWeatherService < BaseService
   def self.get_forecast_data(coordinates)
     new.request_api("/data/2.5/onecall?lat=#{coordinates[:lat]}&lon=#{coordinates[:lng]}&exclude={part}")
   end
@@ -8,15 +8,6 @@ class OpenWeatherService
       faraday.params['appid'] = ENV['OPENWEATHER_KEY']
       faraday.params['units'] = 'imperial'
     end
-
     parse_json(resp)
-  end
-
-  def parse_json(response)
-    JSON.parse(response.body, symbolize_names: true) 
-  end
-
-  def conn(url)
-    Faraday.new(url)
   end
 end

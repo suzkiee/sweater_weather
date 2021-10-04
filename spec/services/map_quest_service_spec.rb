@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe MapQuestService do
   describe 'class methods' do
     describe '::get_coordinates' do
-      it 'can connect to the Map Quest API', :vcr do
+      it 'returns coordinates for given location', :vcr do
         response = MapQuestService.get_coordinates("boston,ma")
         
         expect(response).to be_a(Hash)
