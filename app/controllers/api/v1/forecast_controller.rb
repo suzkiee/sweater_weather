@@ -1,10 +1,10 @@
 class Api::V1::ForecastController < ApplicationController
-  def index 
+  def index
     forecast = WeatherFacade.forecast(params[:location])
     if forecast.nil?
-      render json: { error: error_message }, status: 400
-    else 
-      render json: ForecastSerializer.new(forecast), status: 200
+      render json: { error: error_message }, status: :bad_request
+    else
+      render json: ForecastSerializer.new(forecast), status: :ok
     end
   end
 end

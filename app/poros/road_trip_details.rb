@@ -1,9 +1,9 @@
-class RoadTripDetails 
+class RoadTripDetails
   attr_reader :id,
               :start_city,
               :end_city,
               :travel_time,
-              :weather_at_eta 
+              :weather_at_eta
 
   def initialize(details)
     @id = nil
@@ -28,8 +28,14 @@ class RoadTripDetails
           temperature: "#{eta_forecast[:temperature].round(1)} F",
           conditions: eta_forecast[:conditions]
         }
+
       end
+      {
+        temperature: "#{eta_forecast[:temperature].round(1)} F",
+        conditions: eta_forecast[:conditions]
+      }
     end
+  end
 
     def format_time(details)
       if details[:time].nil?
@@ -38,4 +44,5 @@ class RoadTripDetails
         "#{details[:travel_time][0]} hours, #{details[:travel_time][1]} minutes"
       end
     end
+  end
 end
