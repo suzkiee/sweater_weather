@@ -80,7 +80,7 @@ your local machine for development and testing purposes.
 All endpoints can be viewed by running the `rails server` command in your terminal. In your browswer, type in `http://localhost:3000/{endpoint_get_request}` You can also view the response in [Postman](https://www.postman.com/). Below are details about each endpoint and the type of response you can expect. 
 
 
-| Request  | URI           |  
+| Request Type  | URI           |  
 | ------------- | ------------- |
 | GET  |  /api/v1/forecast?location={location}  |
 | GET  |  /api/v1/backgrounds?location={location} |
@@ -95,10 +95,22 @@ Below are details on how to use each endpoint and the relevant Front End wirefra
 
 <img width="912" alt="Screen Shot 2021-10-05 at 12 29 35 PM" src="https://user-images.githubusercontent.com/70981102/136065244-b4fc924d-c66e-4d1d-b153-d7b863fc05bf.png">
 
-| Request  | URI           | Description  |
-| ------------- | ------------- | ------------ |
-| GET  |  /api/v1/forecast?location={location}  |Returns current forecast for given location. Location must be sent as 'city, state abbreviation' like 'Boston, MA' or 'New York, NY' |
+| Request Type | URI           | Description  | 
+| ------------- | ------------- | ------------ | 
+| GET  |  /api/v1/forecast?location={location}  |Returns current forecast for given location. Location must be sent as 'city, state abbreviation' like 'Boston, MA' or 'New York, NY' | 
 | GET  |  /api/v1/backgrounds?location={location} | Returns url and details of a background image to display for given location. Location must be sent as 'city, state abbreviation' like 'Boston, MA' or 'New York, NY' |
+
+Request Formats 
+```ruby 
+GET /api/v1/forecast?location=denver,co
+Content-Type: application/json
+Accept: application/json
+``` 
+```ruby 
+GET /api/v1/backgrounds?location=denver,co
+Content-Type: application/json
+Accept: application/json
+```
 
 #### User Registration 
 
@@ -106,7 +118,19 @@ Below are details on how to use each endpoint and the relevant Front End wirefra
 
 | Request  | URI           | Description  |
 | ------------- | ------------- | ------------ |
-| POST | /api/v1/users | A post request can be sent to the above uri, sending over the email, password, and password confirmation in the body of the request as JSON. If successful, it will return the user's email and the api key they have been issued. Must include email, password and password confirmation. |
+| POST | /api/v1/users | A post request can be sent to the above uri, sending over the email, password, and password confirmation in the body of the request as JSON. If successful, create a user in your database, and generate a unique api key associated with that user, with a 201 status code. The response should NOT include the password in any form. Must include email, password and password confirmation. |
+
+```ruby
+POST /api/v1/users
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "whatever@example.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+```
 
 #### User Login 
 
@@ -116,17 +140,49 @@ Below are details on how to use each endpoint and the relevant Front End wirefra
 | ------------- | ------------- | ------------ |
 | POST | /api/v1/sessions | A post request can be sent to the above uri, sending over email and password in the body of the request as JSON. If successful, it will return the given user's email and api_key. Must include email and password. |
 
+```ruby
+POST /api/v1/sessions
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "whatever@example.com",
+  "password": "password"
+}
+```
+
 <img width="1057" alt="Screen Shot 2021-10-05 at 12 32 14 PM" src="https://user-images.githubusercontent.com/70981102/136065780-9d81698a-3217-472f-add7-5aff73d49ae4.png">
 
 | Request  | URI           | Description  |
 | ------------- | ------------- | ------------ |
 |POST | /api/v1/road_trip | A post request can be sent to the above uri, sending over an origin (ex. 'Boston, MA'), a destination (ex. 'Denver, CO'), and a valid api key in the body of the request. If the locations are able to be traversed via car, and the api key is valid, the response will send the destination and origin city, total travel time, and estimated weather upon arrival at destination city. Must include both origin and destination city and valid api key|
 
+```ruby
+POST /api/v1/road_trip
+Content-Type: application/json
+Accept: application/json
+
+body:
+
+{
+  "origin": "Denver,CO",
+  "destination": "Pueblo,CO",
+  "api_key": "jgn983hy48thw9begh98h4539h4"
+}
+```
+
 #### Breweries 
 
 | Request  | URI           | Description  |
 | ------------- | ------------- | ------------ |
 | GET |  /api/v1/breweries?location={location}&quantity={quantity} | Returns list of open breweries in given location and the current weather forecast in that city. Location must be sent as 'city, state abbreviation' like 'Boston, MA' or 'New York, NY'. Quantity must be a positive number. |
+
+```ruby 
+GET /api/v1/breweries?location=denver,co&quantity=10
+Content-Type: application/json
+Accept: application/json
+```
+
 ## Running the tests
 
 Run `bundle exec rspec` to run the test suite
