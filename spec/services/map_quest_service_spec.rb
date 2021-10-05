@@ -14,14 +14,14 @@ RSpec.describe MapQuestService do
     end
 
     describe '::find_route' do  
-      xit 'returns the route between two cities', :vcr do
+      it 'returns the route between two cities', :vcr do
         response = MapQuestService.find_route('Denver, CO', 'Estes Park, CO')
         
         expect(response).to be_a(Hash)
         expect(response[:route]).to be_a(Hash)
         expect(response[:route]).to have_key(:distance)
+        expect(response[:route]).to have_key(:realTime)
         expect(response[:route][:distance]).to eq(71.433)
-        expect(response[:route][:realTime]).to eq(5530)
       end
     end 
   end
