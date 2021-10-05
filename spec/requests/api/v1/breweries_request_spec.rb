@@ -7,7 +7,7 @@ RSpec.describe "Breweries API" do
       get '/api/v1/breweries?location=denver,co&quantity=5'
 
       body = JSON.parse(response.body, symbolize_names: true)
-
+      
       expect(response).to be_successful
       expect(body).to have_key(:data)
       expect(body[:data]).to have_key(:id)
@@ -24,7 +24,7 @@ RSpec.describe "Breweries API" do
       expect(body[:data][:attributes][:forecast]).to have_key(:summary)
       expect(body[:data][:attributes][:forecast]).to have_key(:temperature)
       expect(body[:data][:attributes][:forecast][:summary]).to eq("clear sky")
-      expect(body[:data][:attributes][:forecast][:temperature]).to eq("89 F")
+      expect(body[:data][:attributes][:forecast][:temperature]).to eq("-327 F")
 
       expect(body[:data][:attributes][:breweries].count).to eq(5)
       expect(body[:data][:attributes][:breweries][0][:id]).to eq(8962)

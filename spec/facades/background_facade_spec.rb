@@ -5,7 +5,7 @@ describe BackgroundFacade, :vcr do
     context '.get_background' do
       it 'happy path: get background' do
         background = BackgroundFacade.get_background('denver,co')
-    
+
         expect(background).to be_a(BackgroundDetails)
         expect(background.info).to have_key(:location)
         expect(background.info).to have_key(:image_url)

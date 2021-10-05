@@ -1,4 +1,4 @@
-class BackgroundDetails 
+class BackgroundDetails
   attr_reader :id,
               :info
 
@@ -8,15 +8,16 @@ class BackgroundDetails
   end
 
   private
-    def get_info(details, location)
-      {
-        location: location,
-        image_url: details[:results][0][:urls][:regular],
-        credit: {
-          source: 'unsplash.com',
-          author: details[:results][0][:user][:username],
-          logo: details[:results][0][:user][:profile_image][:medium]
-        }
+
+  def get_info(details, location)
+    {
+      location: location,
+      image_url: details[:results][0][:urls][:regular],
+      credit: {
+        source: 'unsplash.com',
+        author: details[:results][0][:user][:username],
+        logo: details[:results][0][:user][:profile_image][:medium]
       }
-    end
+    }
+  end
 end
