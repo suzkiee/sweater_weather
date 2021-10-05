@@ -20,7 +20,7 @@ class RoadTripDetails
           temperature: nil,
           conditions: nil 
         }
-      elsif details[:time] < (Time.now + 288000)
+      else
         eta_forecast = details[:weather].hourly_weather.find do |hour|
           hour[:time].to_i == details[:time].hour
         end
@@ -34,7 +34,7 @@ class RoadTripDetails
     def format_time(details)
       if details[:time].nil?
         "impossible route"
-      elsif details[:time] < (Time.now + 288000)    
+      else details[:time] 
         "#{details[:travel_time][0]} hours, #{details[:travel_time][1]} minutes"
       end
     end
