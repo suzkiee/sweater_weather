@@ -1,6 +1,5 @@
 ![Frame 2](https://user-images.githubusercontent.com/70981102/135905245-917272a9-fea5-4e4d-8316-dc8ebeca16c2.png)
 
-<!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
@@ -26,7 +25,6 @@
   </ol>
 </details>
 
-<!-- ABOUT THE PROJECT -->
 ## About This Project
 
 This is the back-end of a hypothetical application to plan road trips. This app will allow users to see the current weather as well as the forecasted weather at the destination.
@@ -146,6 +144,7 @@ GET /api/v1/backgrounds?location=boston,ma
 Content-Type: application/json
 Accept: application/json
 ```
+
 Response: 
 ```ruby 
 {
@@ -175,7 +174,7 @@ Response:
 | ------------- | ------------- | ------------ |
 | POST | /api/v1/users | A post request can be sent to the above uri, sending over the email, password, and password confirmation in the body of the request as JSON. If successful, create a user in your database, and generate a unique api key associated with that user, with a 201 status code. The response should NOT include the password in any form. Must include email, password and password confirmation. |
 
-Request
+Request:
 ```ruby
 POST /api/v1/users
 Content-Type: application/json
@@ -188,7 +187,7 @@ Accept: application/json
 }
 ```
 
-Response 
+Response:
 ```ruby 
 {
   "data": {
@@ -201,6 +200,7 @@ Response
   }
 }
 ```
+
 #### User Login 
 
 <img width="1146" alt="Screen Shot 2021-10-05 at 12 31 57 PM" src="https://user-images.githubusercontent.com/70981102/136065818-ebd057a7-c386-4a90-8c92-7b9d88ae4c4c.png">
@@ -283,14 +283,80 @@ Response:
 | ------------- | ------------- | ------------ |
 | GET |  /api/v1/breweries?location={location}&quantity={quantity} | Returns list of open breweries in given location and the current weather forecast in that city. Location must be sent as 'city, state abbreviation' like 'Boston, MA' or 'New York, NY'. Quantity must be a positive number. |
 
+Request:
 ```ruby 
 GET /api/v1/breweries?location=denver,co&quantity=10
 Content-Type: application/json
 Accept: application/json
 ```
 
+Response:
 ```
-
+{
+    "data": {
+        "id": "null",
+        "type": "breweries",
+        "attributes": {
+            "destination": "boston, ma",
+            "forecast": {
+                "summary": "overcast clouds",
+                "temperature": "-355 F"
+            },
+            "breweries": [
+                {
+                    "id": 10118,
+                    "name": "Democracy Brewing",
+                    "brewery_type": "brewpub"
+                },
+                {
+                    "id": 14371,
+                    "name": "Slesar Bros Brewing Co - Boston Beer Works",
+                    "brewery_type": "brewpub"
+                },
+                {
+                    "id": 12636,
+                    "name": "Mighty Squirrel",
+                    "brewery_type": "contract"
+                },
+                {
+                    "id": 11341,
+                    "name": "Harpoon Brewery",
+                    "brewery_type": "regional"
+                },
+                {
+                    "id": 14447,
+                    "name": "Somerville Brewing Company",
+                    "brewery_type": "micro"
+                },
+                {
+                    "id": 9686,
+                    "name": "Cheeky Monkey Brewing Co / Lucky Strike Jillians",
+                    "brewery_type": "brewpub"
+                },
+                {
+                    "id": 12835,
+                    "name": "Mystic Brewery",
+                    "brewery_type": "micro"
+                },
+                {
+                    "id": 10246,
+                    "name": "Dorchester Brewing Company",
+                    "brewery_type": "micro"
+                },
+                {
+                    "id": 10261,
+                    "name": "Down the Road Brewery",
+                    "brewery_type": "micro"
+                },
+                {
+                    "id": 14372,
+                    "name": "Slesar Bros Brewing Co - Boston Beer Works",
+                    "brewery_type": "brewpub"
+                }
+            ]
+        }
+    }
+}
 ```
 
 ## Running the tests
