@@ -88,75 +88,6 @@ All endpoints can be viewed by running the `rails server` command in your termin
 
 Below are details on how to use each endpoint and the relevant Front End wireframes.
 
-#### User Registration 
-
-<img width="1151" alt="Screen Shot 2021-10-05 at 12 38 28 PM" src="https://user-images.githubusercontent.com/70981102/136065638-216381b4-5f70-4fcc-96e0-e6d1f8eb2a16.png">
-
-| Request  | URI           | Description  |
-| ------------- | ------------- | ------------ |
-| POST | /api/v1/users | A post request can be sent to the above uri, sending over the email, password, and password confirmation in the body of the request as JSON. If successful, create a user in your database, and generate a unique api key associated with that user, with a 201 status code. The response should NOT include the password in any form. Must include email, password and password confirmation. |
-
-Request:
-```ruby
-POST /api/v1/users
-Content-Type: application/json
-Accept: application/json
-
-{
-  "email": "whatever@example.com",
-  "password": "password",
-  "password_confirmation": "password"
-}
-```
-
-Response:
-```ruby 
-{
-  "data": {
-    "type": "users",
-    "id": "1",
-    "attributes": {
-      "email": "whatever@example.com",
-      "api_key": "jgn983hy48thw9begh98h4539h4"
-    }
-  }
-}
-```
-
-#### User Login 
-
-<img width="1146" alt="Screen Shot 2021-10-05 at 12 31 57 PM" src="https://user-images.githubusercontent.com/70981102/136065818-ebd057a7-c386-4a90-8c92-7b9d88ae4c4c.png">
-
-| Request  | URI           | Description  |
-| ------------- | ------------- | ------------ |
-| POST | /api/v1/sessions | A post request can be sent to the above uri, sending over email and password in the body of the request as JSON. If successful, it will return the given user's email and api_key. Must include email and password. |
-
-Request: 
-```ruby
-POST /api/v1/sessions
-Content-Type: application/json
-Accept: application/json
-
-{
-  "email": "whatever@example.com",
-  "password": "password"
-}
-```
-
-Response:
-```ruby
-{
-  "data": {
-    "type": "users",
-    "id": "1",
-    "attributes": {
-      "email": "whatever@example.com",
-      "api_key": "jgn983hy48thw9begh98h4539h4"
-    }
-  }
-}
-```
-
 #### Application Landing Page
 
 <img width="912" alt="Screen Shot 2021-10-05 at 12 29 35 PM" src="https://user-images.githubusercontent.com/70981102/136065244-b4fc924d-c66e-4d1d-b153-d7b863fc05bf.png">
@@ -231,6 +162,75 @@ Response:
             }
         }
     }
+}
+```
+
+#### User Registration 
+
+<img width="1151" alt="Screen Shot 2021-10-05 at 12 38 28 PM" src="https://user-images.githubusercontent.com/70981102/136065638-216381b4-5f70-4fcc-96e0-e6d1f8eb2a16.png">
+
+| Request  | URI           | Description  |
+| ------------- | ------------- | ------------ |
+| POST | /api/v1/users | A post request can be sent to the above uri, sending over the email, password, and password confirmation in the body of the request as JSON. If successful, create a user in your database, and generate a unique api key associated with that user, with a 201 status code. The response should NOT include the password in any form. Must include email, password and password confirmation. |
+
+Request:
+```ruby
+POST /api/v1/users
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "whatever@example.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+```
+
+Response:
+```ruby 
+{
+  "data": {
+    "type": "users",
+    "id": "1",
+    "attributes": {
+      "email": "whatever@example.com",
+      "api_key": "jgn983hy48thw9begh98h4539h4"
+    }
+  }
+}
+```
+
+#### User Login 
+
+<img width="1146" alt="Screen Shot 2021-10-05 at 12 31 57 PM" src="https://user-images.githubusercontent.com/70981102/136065818-ebd057a7-c386-4a90-8c92-7b9d88ae4c4c.png">
+
+| Request  | URI           | Description  |
+| ------------- | ------------- | ------------ |
+| POST | /api/v1/sessions | A post request can be sent to the above uri, sending over email and password in the body of the request as JSON. If successful, it will return the given user's email and api_key. Must include email and password. |
+
+Request: 
+```ruby
+POST /api/v1/sessions
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "whatever@example.com",
+  "password": "password"
+}
+```
+
+Response:
+```ruby
+{
+  "data": {
+    "type": "users",
+    "id": "1",
+    "attributes": {
+      "email": "whatever@example.com",
+      "api_key": "jgn983hy48thw9begh98h4539h4"
+    }
+  }
 }
 ```
 
