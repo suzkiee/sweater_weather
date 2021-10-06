@@ -291,7 +291,7 @@ Accept: application/json
 ```
 
 Response:
-```
+```ruby
 {
     "data": {
         "id": "null",
