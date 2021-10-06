@@ -13,17 +13,22 @@ class RoadTripDetails
     @weather_at_eta = format_weather(details)
   end
 
-  private
+  private 
+    def format_weather(details)
+      if details[:time].nil? 
+        {
+          temperature: nil,
+          conditions: nil 
+        }
+      else
+        eta_forecast = details[:weather].hourly_weather.find do |hour|
+          hour[:time].to_i == details[:time].hour
+        end
+        {
+          temperature: "#{eta_forecast[:temperature].round(1)} F",
+          conditions: eta_forecast[:conditions]
+        }
 
-  def format_weather(details)
-    if details[:time].nil?
-      {
-        temperature: nil,
-        conditions: nil
-      }
-    elsif details[:time] < (Time.zone.now + 288_000)
-      eta_forecast = details[:weather].hourly_weather.find do |hour|
-        hour[:time].to_i == details[:time].hour
       end
       {
         temperature: "#{eta_forecast[:temperature].round(1)} F",
@@ -32,11 +37,12 @@ class RoadTripDetails
     end
   end
 
-  def format_time(details)
-    if details[:time].nil?
-      'impossible route'
-    elsif details[:time] < (Time.zone.now + 288_000)
-      "#{details[:travel_time][0]} hours, #{details[:travel_time][1]} minutes"
+    def format_time(details)
+      if details[:time].nil?
+        "impossible route"
+      else details[:time] 
+        "#{details[:travel_time][0]} hours, #{details[:travel_time][1]} minutes"
+      end
     end
   end
 end
