@@ -284,7 +284,7 @@ Response:
 
 Request:
 ```ruby 
-GET /api/v1/breweries?location=denver,co&quantity=10
+GET /api/v1/breweries?location=boston,ma&quantity=10
 Content-Type: application/json
 Accept: application/json
 ```
