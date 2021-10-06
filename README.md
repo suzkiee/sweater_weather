@@ -252,7 +252,7 @@ body:
 
 {
   "origin": "Denver,CO",
-  "destination": "Pueblo,CO",
+  "destination": "Estes Park, CO",
   "api_key": "jgn983hy48thw9begh98h4539h4"
 }
 ```
